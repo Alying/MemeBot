@@ -2,6 +2,7 @@
 import random
 from flask import Flask, request
 from pymessenger.bot import Bot
+from utils import wit_response
 import os
 
 app = Flask(__name__)
@@ -25,6 +26,7 @@ def receive_message():
        output = request.get_json()
        for event in output['entry']:
           messaging = event['messaging']
+          input_text = message['message']['text']
           for message in messaging:
             if message.get('message'):
                 #Facebook Messenger ID for user so we know where to send response back to
@@ -34,8 +36,9 @@ def receive_message():
                     send_message(recipient_id, response_sent_text)
                 #if user sends us a GIF, photo,video, or any other non-text item
                 if message['message'].get('attachments'):
-                    response_sent_nontext = get_message()
+                    response_sent_nontext = get_message(input_text)
                     send_message(recipient_id, response_sent_nontext)
+ 
     return "Message Processed"
 
 
@@ -48,10 +51,13 @@ def verify_fb_token(token_sent):
 
 
 #chooses a random message to send to the user
-def get_message():
-    sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
+def get_message(input_text):
+    if input_text == 'memes':
+    	return 'Here is a dank meme'
+    else:
+    	sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
     # return selected item to the user
-    return random.choice(sample_responses)
+    	return random.choice(sample_responses)
 
 #uses PyMessenger to send response to user
 def send_message(recipient_id, response):
