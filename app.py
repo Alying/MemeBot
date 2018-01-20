@@ -6,7 +6,7 @@ import os
 
 app = Flask(__name__)
 # ACCESS_TOKEN =  os.environ['SECRET_KEY']
-ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iHbOtfSTZAVrEDmFuKjLZCGqzdmEmMKPJxqZCMSc7tG2OFFlMVjQ8rBwyZAdFPnSw2ZCgxzCaIuFRs2HYHDhExR3oszDqn4vi80YSle9GTVTN7dW0wZDZD'
+ACCESS_TOKEN = os.environ['SECRET_KEY']
 				
 VERIFY_TOKEN = 'columbia'
 bot = Bot(ACCESS_TOKEN)
