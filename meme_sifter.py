@@ -8,16 +8,22 @@ ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
 
 # build the URL for the API endpoint
 host = "https://graph.facebook.com"
-path = "/me"
+path = "/331078540726047"
+f = "fields=posts.limit(2){likes.summary(true),link,picture}"
 params = urllib.urlencode({"access_token": ACCESS_TOKEN})
 
-url = "{host}{path}?{params}".format(host=host, path=path, params=params)
+url = "{host}{path}?{f}&{params}".format(host=host, path=path, f=f, params=params)
 
 # open the URL and read the response
 resp = urllib.urlopen(url).read()
 
 # convert the returned JSON string to a Python datatype 
 me = json.loads(resp)
+print(type(me))
+print(me.keys())
+print(type(me.keys()))
+print(me.values())
+print(type(me.values()))
 
 # display the result
 pprint.pprint(me)
