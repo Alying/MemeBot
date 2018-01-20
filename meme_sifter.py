@@ -1,8 +1,7 @@
-import os, sys
+import os
 import json
 import urllib
 import pprint
-import pkgs.facebookinsights.commands as commands
 
 # get Facebook access token from environment variable
 ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
@@ -22,10 +21,3 @@ me = json.loads(resp)
 
 # display the result
 pprint.pprint(me)
-
-#pprint,pprint(graph.get_object('me'))
-
-
-#def get_page_memes (page):
-#	page_ID = fi.authenticate()
-#	print(page_ID)
