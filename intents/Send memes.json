@@ -1,0 +1,40 @@
+{
+  "id": "b6a487a5-723f-40f1-8371-f2c961c02ab9",
+  "name": "Send memes",
+  "auto": true,
+  "contexts": [],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "sendmemes",
+      "affectedContexts": [],
+      "parameters": [
+        {
+          "id": "c59885c3-6cd9-4fcc-ac09-183b33e352a4",
+          "required": false,
+          "name": "memes",
+          "value": "https://www.facebook.com/MemeBot-331078540726047/",
+          "prompts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "speech": "Here you go"
+        }
+      ],
+      "defaultResponsePlatforms": {
+        "facebook": true
+      },
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "lastUpdate": 1516476483,
+  "fallbackIntent": false,
+  "events": []
+}
