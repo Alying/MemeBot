@@ -2,10 +2,11 @@
 import random
 from flask import Flask, request
 from pymessenger.bot import Bot
+import os
 
 app = Flask(__name__)
-ACCESS_TOKEN =  os.environ['SECRET_KEY']
-
+# ACCESS_TOKEN =  os.environ['SECRET_KEY']
+ACCESS_TOKEN = 'EAAQENu0nml0BALBkHcYuFdcZBzDQVhO2hyfgAoSPWNXfkqM9tsNIFbH7hZAHZC389iEQeXjRpHN1qKhanYuYp6Bb1JMIAjuS1eocVZBhlXj0yhxzuDYRK3AB7dzcdkOuxjlH0Mr0TjdI9CAiUSjs0ZCgQkuE2vSsiWz3FZC2DRKQZDZD'
 				
 VERIFY_TOKEN = 'columbia'
 bot = Bot(ACCESS_TOKEN)
