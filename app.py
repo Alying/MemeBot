@@ -46,24 +46,23 @@ def webhook():
 					# Extracting text message
 					if 'text' in messaging_event['message']:
 						input_text = messaging_event['message']['text']
-						print input_text
 					else:
 						input_text = 'no text'
 
-					# if input_text == 'Subscribe':
-					# 	response = "Sure! Your daily subscription will begin. Message stop to stop. "
-					# 	bot.send_text_message(sender_id, response)
-					# 	memes = meme_getter(10)
-					# 	meme = random.choice(memes)
-					# 	bot.send_text_message(sender_id, meme)
-					# 	looper = True
-					# 	regMessage(memes,10)
+					if input_text == 'Subscribe':
+						response = "Sure! Your daily subscription will begin. Message stop to stop. "
+						bot.send_text_message(sender_id, response)
+						memes = meme_getter(10)
+						meme = random.choice(memes)
+						bot.send_text_message(sender_id, meme)
+						looper = True
+						regMessage(memes,10)
 						 
-					# elif input_text == 'Stop':
-					# 	looper = False
-					# else:
-					response = get_message(input_text)
-					bot.send_text_message(sender_id, response)
+					elif input_text == 'Stop':
+						looper = False
+					else:
+						response = get_message(input_text)
+						bot.send_text_message(sender_id, response)
 
 	return "ok", 200
 
