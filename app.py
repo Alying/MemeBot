@@ -4,6 +4,7 @@ from flask import Flask, request, render_template
 from pymessenger.bot import Bot
 from utils import wit_response
 from meme_sifter import meme_getter
+import fbmq
 from automate import sendMessage, regMessage, scheduleMessage
 from userMongo import addPersonMongo, updateInfo, delSubs, returnInfo
 import os, sys
@@ -14,6 +15,8 @@ ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iH
 VERIFY_TOKEN = 'columbia'
 bot = Bot(ACCESS_TOKEN)
 #looper = False
+page = fbmq.Page(ACCESS_TOKEN,api_ver="v2.11")
+page.greeting("Welcome to MemeBot! Chat with us to get memes or compliments.")
 
 @app.route('/')
 def index():
@@ -27,7 +30,6 @@ def verify():
             return "Verification token mismatch", 403
         return request.args["hub.challenge"], 200
     return "Hello world", 200
-
 
 @app.route('/', methods=['POST'])
 def webhook():
