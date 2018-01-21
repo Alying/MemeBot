@@ -3,13 +3,19 @@ import random
 from datetime import datetime, timedelta
 from threading import Timer
 from app import check
+from pymessenger.bot import Bot
+
+ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iHbOtfSTZAVrEDmFuKjLZCGqzdmEmMKPJxqZCMSc7tG2OFFlMVjQ8rBwyZAdFPnSw2ZCgxzCaIuFRs2HYHDhExR3oszDqn4vi80YSle9GTVTN7dW0wZDZD'
+bot = Bot(ACCESS_TOKEN)
 
 def sendMessage(messages, period):
-	print(random.choice(messages))
+	message = random.choice(messages)
 	#change message and boolean here
 
+	bot.send_text_message(message)
+
 	if check() == True:
-		regMessage(message, period)
+		regMessage(messages, period)
 
 def regMessage(messages, period): #period in seconds
 	x = datetime.now()
