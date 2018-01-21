@@ -17,7 +17,6 @@ url = "{host}{path}?{f}&{params}".format(host=host, path=path, f=f, params=param
 print(url)
 
 # open the URL and read the response
-
 resp = urllib.urlopen(url).read()
 
 # convert the returned JSON string to a Python datatype (dictionary)
@@ -28,21 +27,25 @@ me = json.loads(resp)
 # display the result
 #pprint.pprint(me)
 
+#num_of_posts = number of posts, in most-recent to least-recent order
 def meme_getter(num_of_posts):
-	li = []
+	try:
+		li = []
 
-	# of the two keys in the dictionary, the first is the posts; the second is the user id
-	posts, user_id = me.keys()
+		# of the two keys in the dictionary, the first is the posts; the second is the user id
+		posts, user_id = me.keys()
 
- 	#image url
-	for i in range(num_of_posts):
-		meme_url =  me[posts]["data"][i]["link"]
- 		#print(meme_url)
- 		#picture_preview = me[posts]["data"][i]["picture"]
- 		#print(picture_preview)
- 		#full_meme_package = [meme_url, picture_preview]
-		li.append(meme_url)
+		for i in range(num_of_posts):
+ 			meme_url =  me[posts]["data"][i]["link"]
+ 			#likes_summary = me[posts]["data"][i]["likes"][2]
+ 			#total_count = likes_summary[summary][total_count]
 
-	print(li)
-	return li
-meme_getter(2);
+ 			#print(meme_url)
+ 			#picture_preview = me[posts]["data"][i]["picture"]
+ 			#print(picture_preview)
+ 			#full_meme_package = [meme_url, picture_preview]
+ 			li.append(meme_url)
+	
+		return li
+	except IndexError:
+		print("There are not enough memes posted in the group yet :(")
