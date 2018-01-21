@@ -29,15 +29,18 @@ def meme_getter(num_of_posts):
 	li = []
 
 	# of the two keys in the dictionary, the first is the posts; the second is the user id
-	posts = me.keys()
+	posts, user_id = me.keys()
 
-	#image url
-	for i in range(num_of_posts):
-		meme_url =  me[posts][data][i]["link"]
-		picture_preview = me[posts][data][i]["pic"]
-		full_meme_package = [meme_url, picture_preview]
-		li.extend(full_meme_package)
+ 	#image url
+ 	for i in range(num_of_posts):
+ 		meme_url =  me[posts]["data"][i]["link"]
+ 		#print(meme_url)
+ 		picture_preview = me[posts]["data"][i]["picture"]
+ 		#print(picture_preview)
+ 		full_meme_package = [meme_url, picture_preview]
+ 		li.extend(full_meme_package)
 
-	return li
+ 	print(li)
+ 	return li
 
-print(meme_getter(2))
+meme_getter(2)
