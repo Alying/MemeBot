@@ -9,11 +9,11 @@ def wit_response(message):
 	value = None
 
 	try: 
-		entity = list(resp['entities'])[0]
+		# entity = list(resp['entities'])[0]
 		value = resp['entities']['sendmemes'][0]['value']
 	except: 
 		pass
 
-	return (entity, value)
+	return value
 
-print(wit_response('meme'))
+print(wit_response('I dont want memes'))

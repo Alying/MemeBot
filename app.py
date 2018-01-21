@@ -3,12 +3,11 @@ import random
 from flask import Flask, request
 from pymessenger.bot import Bot
 from utils import wit_response
-import os
+import os, sys
 
 app = Flask(__name__)
 # ACCESS_TOKEN =  os.environ['SECRET_KEY']
 ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iHbOtfSTZAVrEDmFuKjLZCGqzdmEmMKPJxqZCMSc7tG2OFFlMVjQ8rBwyZAdFPnSw2ZCgxzCaIuFRs2HYHDhExR3oszDqn4vi80YSle9GTVTN7dW0wZDZD'
-				
 VERIFY_TOKEN = 'columbia'
 bot = Bot(ACCESS_TOKEN)
 
@@ -64,7 +63,7 @@ def verify_fb_token(token_sent):
 
 #chooses a random message to send to the user
 def get_message(input_text):
-    (entity,value) = wit_response(input_text)
+    value = wit_response(input_text)
     if value == 'memes':
     	return 'Here is a dank meme /n https://www.facebook.com/groups/1006815496091821/?ref=br_rs'
     else:
