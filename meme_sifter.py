@@ -38,8 +38,8 @@ def meme_getter(num_of_posts):
  		#print(meme_url)
  		#picture_preview = me[posts]["data"][i]["picture"]
  		#print(picture_preview)
-		full_meme_package = [meme_url, picture_preview]
-		li.extend(full_meme_package)
+ 		#full_meme_package = [meme_url, picture_preview]
+ 		li.extend(meme_url)
 
 	print(li)
 	return li
