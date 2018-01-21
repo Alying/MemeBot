@@ -5,7 +5,7 @@ import urllib
 import pprint
 
 # get Facebook access token from environment variable
-ACCESS_TOKEN = 'EAAQENu0nml0BAMicMyUVodPHUK667C7q8fxqX5mn0woZB0ZCKHbL2kUx1WFAHWUe3Cn1DEuNJsJ9iFmepc7hNfa1Ox6kmGZCZBICpkqVebZCe9pKCASriDLGabwusVM3XHvaw8kZBl3gNZBmMOLKiLnC7zZBVL22rTydPrOkhZAnVRSQ89H84OK6nPVebdsFeQ0ZAZCyj6H8wUNHAZDZD'
+ACCESS_TOKEN = 'EAAQENu0nml0BALSu9BJS6IIlWHtflUPrvMUatr0QFsoJZCjjpZCmovkk8bi386ZAMQfmZCIGg3mGUqcZCsAWITt50e9X1sdLcHGtx0C8ZAl7Ud9PhbPUoiUR7qCQw26TnH9CTzsxVDZAyeOXNa7fQeC8kswetNOHhvaH10cOmRjT16A8MudcI7lJQLUSWfeeBGl1vDji0tb0AZDZD'
 
 # build the URL for the API endpoint
 host = "https://graph.facebook.com"
@@ -32,7 +32,7 @@ def meme_getter(num_of_posts):
 		li = []
 
 		# of the two keys in the dictionary, the first is the posts; the second is the user id
-		posts, user_id = me.keys()
+		(posts, user_id) = me.keys()
 
 		for i in range(num_of_posts):
  			meme_url =  me[posts]["data"][i]["link"]

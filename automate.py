@@ -2,6 +2,7 @@ from time import sleep
 import random
 from datetime import datetime, timedelta
 from threading import Timer
+from app.py import check
 
 def sendMessage(messages, period):
 	print(random.choice(messages))
