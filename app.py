@@ -48,7 +48,7 @@ def webhook():
 						input_text = messaging_event['message']['text']
 					else:
 						input_text = 'no text'
-
+'''
 					if input_text == 'Subscribe':
 						response = "Sure! Your daily subscription will begin. Message stop to stop. "
 						bot.send_text_message(sender_id, response)
@@ -60,9 +60,10 @@ def webhook():
 						 
 					elif input_text == 'Stop':
 						looper = False
-					else:
-						response = get_message(input_text)
-						bot.send_text_message(sender_id, response)
+					else:'''
+
+					response = get_message(input_text)
+					bot.send_text_message(sender_id, response)
 
 	return "ok", 200
 
