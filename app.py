@@ -39,7 +39,7 @@ def webhook():
 
 				# IDs
 				sender_id = messaging_event['sender']['id']
-				x = messaging_event['recipient']['id']
+				recipient_id = messaging_event['recipient']['id']
 
 				if messaging_event.get('message'):
 					# Extracting text message
@@ -73,11 +73,10 @@ def log(message):
 	sys.stdout.flush()
 
 def get_message(input_text):
-	meme_string = ''
 	value = wit_response(input_text)
 	if value == 'memes':
-		meme = meme_getter(10)
-		meme = random.choice(meme)
+		memes = meme_getter(10)
+		meme = random.choice(memes)
 		return 'Here is a dank meme {}'.format(meme)
 	else:
 		sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
