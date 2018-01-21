@@ -48,8 +48,8 @@ def webhook():
 						input_text = messaging_event['message']['text']
 					else:
 						input_text = 'no text'
-'''
-					if input_text == 'Subscribe':
+
+					'''if input_text == 'Subscribe':
 						response = "Sure! Your daily subscription will begin. Message stop to stop. "
 						bot.send_text_message(sender_id, response)
 						memes = meme_getter(10)
