@@ -5,12 +5,12 @@ import urllib
 import pprint
 
 # get Facebook access token from environment variable
-ACCESS_TOKEN = 'EAAQENu0nml0BAHPujlRz1zPOav6RFSryclkGZAUbS3D4AfT20UwA6GrgP7ZCsvKNu46vbBmYaPNCgRjOYUHV4dIhjqIVuQqwJrJVFLnSmGHjjWkcIoZCpwAs652RH264ELrFkz7f8lK4UogMDSNrAVHySAealMOpwOU70slaZAfXMaXZAX420NUS63CvUQDixG000l1GTyAZDZD'
+ACCESS_TOKEN = "EAAQENu0nml0BAHPujlRz1zPOav6RFSryclkGZAUbS3D4AfT20UwA6GrgP7ZCsvKNu46vbBmYaPNCgRjOYUHV4dIhjqIVuQqwJrJVFLnSmGHjjWkcIoZCpwAs652RH264ELrFkz7f8lK4UogMDSNrAVHySAealMOpwOU70slaZAfXMaXZAX420NUS63CvUQDixG000l1GTyAZDZD"
 
 # build the URL for the API endpoint
 host = "https://graph.facebook.com"
 path = "/331078540726047"
-f = "fields=posts.limit(2){likes.summary(true),link,picture}"
+f = "fields=posts{likes.summary(true),link,picture}"
 params = urllib.parse.urlencode({"access_token": ACCESS_TOKEN})
 
 url = "{host}{path}?{f}&{params}".format(host=host, path=path, f=f, params=params)
@@ -34,12 +34,12 @@ def meme_getter(num_of_posts):
 
  	#image url
 	for i in range(num_of_posts):
- 		meme_url =  me[posts]["data"][i]["link"]
+		meme_url =  me[posts]["data"][i]["link"]
  		#print(meme_url)
- 		picture_preview = me[posts]["data"][i]["picture"]
+ 		#picture_preview = me[posts]["data"][i]["picture"]
  		#print(picture_preview)
- 		full_meme_package = [meme_url, picture_preview]
- 		li.extend(full_meme_package)
+ 		#full_meme_package = [meme_url, picture_preview]
+		li.extend(meme_url)
 
 	print(li)
 	return li
