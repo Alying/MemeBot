@@ -23,28 +23,28 @@ def receive_message():
     #if the request was not get, it must be POST and we can just proceed with sending a message back to user
     else:
         # get whatever message a user sent the bot
-       output = request.get_json()
-       for event in output['entry']:
-          messaging = event['messaging']
-          for message in messaging:
-            if message.get('message'):
-                #Facebook Messenger ID for user so we know where to send response back to
-                recipient_id = message['sender']['id']
-         		if 'text' in messaging_event['message']:
+      	output = request.get_json()
+       	for event in output['entry']:
+         	messaging = event['messaging']
+          	for message in messaging:
+            	if message.get('message'):
+                	#Facebook Messenger ID for user so we know where to send response back to
+	                recipient_id = message['sender']['id']
+	         		if 'text' in messaging_event['message']:
 						input_text = messaging_event['message']['text']
 						response_sent_text = get_message(input_text)
 						send_message(recipient_id, response_sent_text)
-				else:
-					input_text = 'no text'
-					response_sent_text = get_message(input_text)
-					send_message(recipient_id, response_sent_text)
-                # if message['message'].get('text'):
-                #     response_sent_text = get_message()
-                #     send_message(recipient_id, response_sent_text)
-                # #if user sends us a GIF, photo,video, or any other non-text item
-                # if message['message'].get('attachments'):
-                #     response_sent_nontext = get_message(input_text)
-                #     send_message(recipient_id, response_sent_nontext)
+					else:
+						input_text = 'no text'
+						response_sent_text = get_message(input_text)
+						send_message(recipient_id, response_sent_text)
+	                # if message['message'].get('text'):
+	                #     response_sent_text = get_message()
+	                #     send_message(recipient_id, response_sent_text)
+	                # #if user sends us a GIF, photo,video, or any other non-text item
+	                # if message['message'].get('attachments'):
+	                #     response_sent_nontext = get_message(input_text)
+	                #     send_message(recipient_id, response_sent_nontext)
  
     return "Message Processed"
 
