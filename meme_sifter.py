@@ -28,37 +28,24 @@ me = json.loads(resp)
 #pprint.pprint(me)
 
 #num_of_posts = number of posts, in most-recent to least-recent order
-#in the most recent number (given) of posts, gives the immage urls of better half 
 def meme_getter(num_of_posts):
-	li = []
-	d = {}
+	try:
+		li = []
 
-	# of the two keys in the dictionary, the first is the posts; the second is the user id
-	print(me.keys())
-	posts, user_id = me.keys()
+		# of the two keys in the dictionary, the first is the posts; the second is the user id
+		posts, user_id = me.keys()
 
-	for i in range(num_of_posts):
- 		meme_url =  me[posts]["data"][i]["link"]
- 		likes_summary = me[posts]["data"][i]["likes"][2]
- 		total_count = likes_summary[summary][total_count]
+		for i in range(num_of_posts):
+ 			meme_url =  me[posts]["data"][i]["link"]
+ 			#likes_summary = me[posts]["data"][i]["likes"][2]
+ 			#total_count = likes_summary[summary][total_count]
 
- 		#print(meme_url)
- 		#picture_preview = me[posts]["data"][i]["picture"]
- 		#print(picture_preview)
- 		#full_meme_package = [meme_url, picture_preview]
- 		li.append(meme_url)
-
- 		d[meme_url] = total_count
-
-	print(li)
-	return li
-
-#queue has a dictionary of meme urls paired with total number of likes per meme url
-def best_meme_list(d):
-	import operator
-	queue = []
-
-	max(d.iteritems(), key=operator.itemgetter(1))[0]
-
-print(meme_getter(2))
-
+ 			#print(meme_url)
+ 			#picture_preview = me[posts]["data"][i]["picture"]
+ 			#print(picture_preview)
+ 			#full_meme_package = [meme_url, picture_preview]
+ 			li.append(meme_url)
+	
+		return li
+	except IndexError:
+		print("There are not enough memes posted in the group yet :(")
