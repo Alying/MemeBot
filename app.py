@@ -45,7 +45,7 @@ def webhook():
 					else:
 						input_text = 'no text'
 
-					if input_text == 'Subscribe'
+					if input_text == 'Subscribe':
 						response = "Sure! Your daily subscription will begin. Message stop to stop. "
 						bot.send_text_message(sender_id, response)
 						memes = meme_getter(10)
@@ -54,7 +54,7 @@ def webhook():
 						looper = True
 						regMessage(memes,10)
 						 
-					elif input_text == 'Stop'
+					elif input_text == 'Stop':
 						looper = False
 
 					response = get_message(input_text, sender_id)
@@ -72,7 +72,7 @@ def log(message):
 def get_message(input_text):
 	meme_string = ''
 	value = wit_response(input_text)
-	elif value == 'memes':
+	if value == 'memes':
 		meme = meme_getter(10)
 		meme = random.choice(meme)
 		return 'Here is a dank meme {}'.format(meme)

@@ -14,7 +14,6 @@ f = "fields=posts{likes.summary(true),link,picture}"
 params = urllib.urlencode({"access_token": ACCESS_TOKEN})
 
 url = "{host}{path}?{f}&{params}".format(host=host, path=path, f=f, params=params)
-print(url)
 
 # open the URL and read the response
 resp = urllib.urlopen(url).read()
