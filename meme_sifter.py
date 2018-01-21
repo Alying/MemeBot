@@ -37,7 +37,7 @@ def meme_getter(num_of_posts):
 	posts, paging, user_id = me.keys()
 
 	#image url
-	for i in range(num_of_posts)
+	for i in range(num_of_posts):
 		meme_url =  me[posts][data][i]["link"]
 		picture_preview = me[posts][data][i]["pic"]
 		full_meme_package = [meme_url, picture_preview]
