@@ -53,18 +53,18 @@ def log(message):
 	sys.stdout.flush()
 
 def get_message(input_text):
-    value = wit_response(input_text)
-    if value == 'memes':
-    	meme = meme_getter(2)
-    	meme = meme[0:4]
-    	meme_string = ''
-    	for i in meme: 
-    		meme_string = memestring + ' ' + i
-    	return 'Here is a dank meme {}'.format(meme)
-    else:
-    	sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
+	meme_string = ''
+	value = wit_response(input_text)
+	if value == 'memes':
+		meme = meme_getter(2)
+		meme = meme[0:4]
+		for i in meme: 
+			meme_string = memestring + ' ' + i
+		return 'Here is a dank meme {}'.format(meme)
+	else:
+		sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
     # return selected item to the user
-    	return random.choice(sample_responses)
+		return random.choice(sample_responses)
 
 if __name__ == "__main__":
 	app.run(debug = True, port = 80)
