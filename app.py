@@ -61,7 +61,6 @@ def webhook():
 					elif input_text == 'Stop':
 						looper = False
 					else:'''
-
 					response = get_message(input_text)
 					bot.send_text_message(sender_id, response)
 
