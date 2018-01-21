@@ -1,4 +1,4 @@
-from flask import Flask
+#from flask import Flask
 import os
 import json
 import urllib
@@ -11,12 +11,13 @@ ACCESS_TOKEN = "EAAQENu0nml0BAHPujlRz1zPOav6RFSryclkGZAUbS3D4AfT20UwA6GrgP7ZCsvK
 host = "https://graph.facebook.com"
 path = "/331078540726047"
 f = "fields=posts{likes.summary(true),link,picture}"
-params = urllib.parse.urlencode({"access_token": ACCESS_TOKEN})
+params = parse.urlencode({"access_token": ACCESS_TOKEN})
 
 url = "{host}{path}?{f}&{params}".format(host=host, path=path, f=f, params=params)
+print(url)
 
 # open the URL and read the response
-resp = urllib.request.urlopen(url).read()
+resp = request.urlopen(url).read()
 
 # convert the returned JSON string to a Python datatype (dictionary)
 me = json.loads(resp)
@@ -35,11 +36,12 @@ def meme_getter(num_of_posts):
  	#image url
 	for i in range(num_of_posts):
 		meme_url =  me[posts]["data"][i]["link"]
- 		#print(meme_url)
- 		#picture_preview = me[posts]["data"][i]["picture"]
- 		#print(picture_preview)
- 		#full_meme_package = [meme_url, picture_preview]
+		# print(meme_url)
+		# # picture_preview = me[posts]["data"][i]["picture"]
+		# # print(picture_preview)
+		# full_meme_package = [meme_url, picture_preview]
 		li.extend(meme_url)
 
 	print(li)
 	return li
+meme_getter(2);
