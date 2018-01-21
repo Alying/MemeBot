@@ -31,7 +31,7 @@ def meme_getter(num_of_posts):
 		li = []
 
 		# of the two keys in the dictionary, the first is the posts; the second is the user id
-		(posts, user_id) = me.keys()
+		(posts, user_id) =  me.keys()
 
 		for i in range(num_of_posts):
  			meme_url =  me[posts]["data"][i]["link"]

@@ -82,7 +82,7 @@ def get_message(input_text):
 	elif value == 'bird meme':
 		return 'Here is nice meme! https://www.facebook.com/331078540726047/photos/a.331493887351179.1073741827.331078540726047/331643797336188/?type=3&theater'
 	else:
-		sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
+		sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're grateful to know you :)"]
     # return selected item to the user
 		return random.choice(sample_responses)
 
