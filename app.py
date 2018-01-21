@@ -4,6 +4,8 @@ from flask import Flask, request
 from pymessenger.bot import Bot
 from utils import wit_response
 from meme_sifter import meme_getter
+from automate import sendMessage, regMessage, scheduleMessage
+from userMongo import addPersonMongo, updateInfo, delSubs, returnInfo
 import os, sys
 
 app = Flask(__name__)
@@ -38,11 +40,20 @@ def webhook():
 				if messaging_event.get('message'):
 					# Extracting text message
 					if 'text' in messaging_event['message']:
-						messaging_text = messaging_event['message']['text']
+						input_text = messaging_event['message']['text']
 					else:
-						messaging_text = 'no text'
+						input_text = 'no text'
 
-					response = get_message(messaging_text)
+					if input_text == 'Subscribe'
+						response = "Sure! Your daily subscription will begin. Message stop to stop. "
+						bot.send_text_message(sender_id, response)
+						meme = meme_getter(10)
+						bot.send_text_message(sender_id, meme)
+						looper = True
+					elif input_text == 'Stop'
+						looper = False
+
+					response = get_message(input_text, sender_id)
 					bot.send_text_message(sender_id, response)
 
 	return "ok", 200
@@ -55,10 +66,9 @@ def log(message):
 def get_message(input_text):
 	meme_string = ''
 	value = wit_response(input_text)
-	if value == 'memes':
-		meme = meme_getter(2)
-		for i in meme: 
-			meme_string = meme_string + i + ' ' 
+	elif value == 'memes':
+		meme = meme_getter(10)
+		meme = random.choice(meme)
 		return 'Here is a dank meme {}'.format(meme)
 	else:
 		sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
