@@ -13,7 +13,7 @@ app = Flask(__name__)
 ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iHbOtfSTZAVrEDmFuKjLZCGqzdmEmMKPJxqZCMSc7tG2OFFlMVjQ8rBwyZAdFPnSw2ZCgxzCaIuFRs2HYHDhExR3oszDqn4vi80YSle9GTVTN7dW0wZDZD'
 VERIFY_TOKEN = 'columbia'
 bot = Bot(ACCESS_TOKEN)
-looper = False
+# looper = False
 
 @app.route('/', methods=['GET'])
 def verify():
@@ -62,8 +62,8 @@ def webhook():
 
 	return "ok", 200
 
-def check(): 
-	return looper 
+# def check(): 
+# 	return looper 
 
 def log(message):
 	print(message)
