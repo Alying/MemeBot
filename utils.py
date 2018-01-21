@@ -15,5 +15,3 @@ def wit_response(message):
 		pass
 
 	return value
-
-print(wit_response('I dont want memes'))

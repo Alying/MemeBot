@@ -61,7 +61,7 @@ def webhook():
 					# elif input_text == 'Stop':
 					# 	looper = False
 
-					response = get_message(input_text, sender_id)
+					response = get_message(input_text)
 					bot.send_text_message(sender_id, response)
 
 	return "ok", 200
@@ -76,7 +76,7 @@ def log(message):
 def get_message(input_text):
 	value = wit_response(input_text)
 	if value == 'memes':
-		memes = meme_getter(10)
+		memes = meme_getter(5)
 		meme = random.choice(memes)
 		return 'Here is a dank meme {}'.format(meme)
 	else:
