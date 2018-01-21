@@ -35,7 +35,7 @@ def meme_getter(num_of_posts):
 
 		for i in range(num_of_posts):
  			meme_url =  me[posts]["data"][i]["link"]
- 			#print meme_url
+ 			print meme_url
  			#likes_summary = me[posts]["data"][i]["likes"][2]
  			#total_count = likes_summary[summary][total_count]
 
