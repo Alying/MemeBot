@@ -14,9 +14,10 @@ ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iH
 VERIFY_TOKEN = 'columbia'
 bot = Bot(ACCESS_TOKEN)
 # looper = False
-@app.route('/')
-def index():
-	return render_template('index.html', name='MemeBot')
+
+# @app.route('/')
+# def index():
+# 	return render_template('index.html', name='MemeBot')
 
 @app.route('/', methods=['GET'])
 def verify():
