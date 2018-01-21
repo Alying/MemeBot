@@ -60,8 +60,8 @@ def webhook():
 					# elif input_text == 'Stop':
 					# 	looper = False
 
-					# response = get_message(input_text, sender_id)
-					# bot.send_text_message(sender_id, response)
+					response = get_message(input_text, sender_id)
+					bot.send_text_message(sender_id, response)
 
 	return "ok", 200
 
