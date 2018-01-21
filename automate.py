@@ -3,16 +3,17 @@ import random
 from datetime import datetime, timedelta
 from threading import Timer
 
-def sendMessage(messages, period, repeat):
+def sendMessage(messages, period):
 	print(random.choice(messages))
 	#change message and boolean here
 
-	repeat = check()
-	regMessage(message, period, repeat)
+	if check() == True:
+		regMessage(message, period)
 
-def regMessage(messages, period, repeat): #period in seconds
-	x = datetime.today()
-	ymin, ysec, yhour= 0,0,x.hour
+def regMessage(messages, period): #period in seconds
+	x = datetime.now()
+	runat = now + timedelta(seconds = period)
+	'''ymin, ysec, yhour= 0,0,x.hour
 
 	if (x.second + period > 59):
 		if x.minute == 59:
@@ -26,17 +27,17 @@ def regMessage(messages, period, repeat): #period in seconds
 		ysec = x.second + period
 
 	y = x.replace(day=x.day, hour = yhour, minute=ymin, second=ysec, microsecond=0)
-	delta_t = y - x
+	delta_t = y - x'''
 
-	delay = delta_t.total_seconds()
+	delay = (runat - now).total_seconds()
 
-	Timer(delay, sendMessage, [messages, period, repeat]).start()
+	Timer(delay, sendMessage, [messages, period]).start()
 
 def scheduleMessage(daysOfWeek, message):
 	now = datetime.now()
 	runat = now + timedelta(seconds = 15)
 	delay = (runat - now).total_seconds()
-	Timer(delay, sendMessage, [message]).start()
+	#Timer(delay, sendMessage, [message]).start()
 
 '''
 scheduleMessage(3, 'hi')
