@@ -21,26 +21,23 @@ resp = urllib.urlopen(url).read()
 me = json.loads(resp)
 
 #me is a dictionary, me.keys() is a list, me.values() is a list
-print(type(me))
-print(me.keys())
-print(type(me.keys()))
-print(me.values())
-print(type(me.values()))
 
 # display the result
-pprint.pprint(me)
+#pprint.pprint(me)
 
 def meme_getter(num_of_posts):
 	li = []
 
 	# of the two keys in the dictionary, the first is the posts; the second is the user id
-	posts, paging, user_id = me.keys()
+	posts = me.keys()
 
 	#image url
-	for i in range(num_of_posts)
+	for i in range(num_of_posts):
 		meme_url =  me[posts][data][i]["link"]
 		picture_preview = me[posts][data][i]["pic"]
 		full_meme_package = [meme_url, picture_preview]
 		li.extend(full_meme_package)
 
 	return li
+
+print(meme_getter(2))
