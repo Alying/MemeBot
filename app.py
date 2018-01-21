@@ -46,6 +46,7 @@ def webhook():
 					# Extracting text message
 					if 'text' in messaging_event['message']:
 						input_text = messaging_event['message']['text']
+						print input_text
 					else:
 						input_text = 'no text'
 
