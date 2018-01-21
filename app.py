@@ -21,17 +21,20 @@ def receive_message():
         token_sent = request.args.get("hub.verify_token")
         return verify_fb_token(token_sent)
     #if the request was not get, it must be POST and we can just proceed with sending a message back to user
-    else:
-        # get whatever message a user sent the bot
-      	output = request.get_json()
-       	for event in output['entry']:
+def webhook():
+	output = request.get_json()
+	log(output)
+    # get whatever message a user sent the bot
+    if output['object'] == 'page':
+		for event in output['entry']:
          	messaging = event['messaging']
           	for message in messaging:
             	if message.get('message'):
                 	#Facebook Messenger ID for user so we know where to send response back to
 	                recipient_id = message['sender']['id']
-	         		if 'text' in messaging_event['message']:
-						input_text = messaging_event['message']['text']
+	                sender_id = message['sender']['id']
+	         		if 'text' in message['message']:
+						input_text = message['message']['text']
 						response_sent_text = get_message(input_text)
 						send_message(recipient_id, response_sent_text)
 					else:
@@ -71,6 +74,10 @@ def send_message(recipient_id, response):
     #sends user the text message provided via input response parameter
     bot.send_text_message(recipient_id, response)
     return "success"
+    
+def log(message):
+	print(message)
+	sys.stdout.flush()
 
 if __name__ == "__main__":
     app.run(debug = True)
