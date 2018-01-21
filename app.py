@@ -57,9 +57,8 @@ def get_message(input_text):
 	value = wit_response(input_text)
 	if value == 'memes':
 		meme = meme_getter(2)
-		meme = meme[0:4]
 		for i in meme: 
-			meme_string = meme_string + ' ' + i
+			meme_string = meme_string + i + ' ' 
 		return 'Here is a dank meme {}'.format(meme)
 	else:
 		sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
