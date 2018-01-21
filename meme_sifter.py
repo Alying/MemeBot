@@ -1,22 +1,22 @@
-from flask import Flask
+#from flask import Flask
 import os
 import json
 import urllib
 import pprint
 
 # get Facebook access token from environment variable
-ACCESS_TOKEN = "EAAQENu0nml0BAHPujlRz1zPOav6RFSryclkGZAUbS3D4AfT20UwA6GrgP7ZCsvKNu46vbBmYaPNCgRjOYUHV4dIhjqIVuQqwJrJVFLnSmGHjjWkcIoZCpwAs652RH264ELrFkz7f8lK4UogMDSNrAVHySAealMOpwOU70slaZAfXMaXZAX420NUS63CvUQDixG000l1GTyAZDZD"
+ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
 
 # build the URL for the API endpoint
 host = "https://graph.facebook.com"
 path = "/331078540726047"
 f = "fields=posts{likes.summary(true),link,picture}"
-params = urllib.parse.urlencode({"access_token": ACCESS_TOKEN})
+params = urllib.urlencode({"access_token": ACCESS_TOKEN})
 
 url = "{host}{path}?{f}&{params}".format(host=host, path=path, f=f, params=params)
 
 # open the URL and read the response
-resp = urllib.request.urlopen(url).read()
+resp = urllib.urlopen(url).read()
 
 # convert the returned JSON string to a Python datatype (dictionary)
 me = json.loads(resp)
@@ -39,7 +39,7 @@ def meme_getter(num_of_posts):
  		#picture_preview = me[posts]["data"][i]["picture"]
  		#print(picture_preview)
  		#full_meme_package = [meme_url, picture_preview]
-		li.extend(meme_url)
+		li.append(meme_url)
 
 	print(li)
 	return li
