@@ -75,8 +75,8 @@ def log(message):
 
 def get_message(input_text):
 	value = wit_response(input_text)
-	if value == 'bird meme':
-		return 'Here is nice meme! https://www.facebook.com/331078540726047/photos/a.331493887351179.1073741827.331078540726047/331643797336188/?type=3&theater'
+	if value == 'Bird meme':
+		return 'Here is bird meme! https://www.facebook.com/331078540726047/photos/a.331493887351179.1073741827.331078540726047/331643797336188/?type=3&theater'
 	elif value == 'memes':
 		memes = meme_getter(5)
 		meme = random.choice(memes)
