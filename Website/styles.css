@@ -1,0 +1,18 @@
+
+.h1{
+    font-family: "Raleway", Arial, sans-serif
+    font-size:40px;
+}
+
+.icon {
+    text-align:right;
+    background-color: blue;
+    font-size: 100px;
+    position: absolute;
+    right: 50%;
+}
+
+body {
+    font-family: "Raleway", Arial, sans-serif
+    font-size:40px;
+}

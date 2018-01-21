@@ -4,7 +4,7 @@ import urllib
 import pprint
 
 # get Facebook access token from environment variable
-ACCESS_TOKEN = os.environ["ACCESS_TOKEN"]
+ACCESS_TOKEN = 'EAAQENu0nml0BALSu9BJS6IIlWHtflUPrvMUatr0QFsoJZCjjpZCmovkk8bi386ZAMQfmZCIGg3mGUqcZCsAWITt50e9X1sdLcHGtx0C8ZAl7Ud9PhbPUoiUR7qCQw26TnH9CTzsxVDZAyeOXNa7fQeC8kswetNOHhvaH10cOmRjT16A8MudcI7lJQLUSWfeeBGl1vDji0tb0AZDZD'
 
 # build the URL for the API endpoint
 host = "https://graph.facebook.com"
@@ -25,20 +25,25 @@ me = json.loads(resp)
 # display the result
 #pprint.pprint(me)
 
+#num_of_posts = number of posts, in most-recent to least-recent order
 def meme_getter(num_of_posts):
-	li = []
+	try:
+		li = []
 
-	# of the two keys in the dictionary, the first is the posts; the second is the user id
-	posts, user_id = me.keys()
+		# of the two keys in the dictionary, the first is the posts; the second is the user id
+		(posts, user_id) = me.keys()
 
- 	#image url
-	for i in range(num_of_posts):
-		meme_url =  me[posts]["data"][i]["link"]
- 		#print(meme_url)
- 		#picture_preview = me[posts]["data"][i]["picture"]
- 		#print(picture_preview)
- 		#full_meme_package = [meme_url, picture_preview]
-		li.append(meme_url)
+		for i in range(num_of_posts):
+ 			meme_url =  me[posts]["data"][i]["link"]
+ 			#likes_summary = me[posts]["data"][i]["likes"][2]
+ 			#total_count = likes_summary[summary][total_count]
 
-	print(li)
-	return li
+ 			#print(meme_url)
+ 			#picture_preview = me[posts]["data"][i]["picture"]
+ 			#print(picture_preview)
+ 			#full_meme_package = [meme_url, picture_preview]
+ 			li.append(meme_url)
+	
+		return li
+	except IndexError:
+		print("There are not enough memes posted in the group yet :(")
