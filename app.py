@@ -20,7 +20,9 @@ def receive_message():
         that confirms all requests that your bot receives came from Facebook.""" 
         token_sent = request.args.get("hub.verify_token")
         return verify_fb_token(token_sent)
-    #if the request was not get, it must be POST and we can just proceed with sending a message back to user
+    #if the request was not get, it must be POST and we can just proceed with sending a message back to user\
+    
+@app.route("/", methods=['POST'])
 def webhook():
 	output = request.get_json()
 	log(output)
@@ -63,7 +65,7 @@ def verify_fb_token(token_sent):
 #chooses a random message to send to the user
 def get_message(input_text):
     if wit_response(input_text) == 'memes':
-    	return 'Here is a dank meme'
+    	return 'Here is a dank meme /n https://www.facebook.com/groups/1006815496091821/?ref=br_rs'
     else:
     	sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
     # return selected item to the user
@@ -74,7 +76,7 @@ def send_message(recipient_id, response):
     #sends user the text message provided via input response parameter
     bot.send_text_message(recipient_id, response)
     return "success"
-    
+
 def log(message):
 	print(message)
 	sys.stdout.flush()
