@@ -9,10 +9,6 @@ def scheduleMessage(daysOfWeek, message):
 	now = datetime.now()
 	runat = now + timedelta(seconds = 15)
 	delay = (runat - now).total_seconds()
-
-	print runat
-	print delay
-
 	Timer(delay, sendMessage, [message]).start()
 
 scheduleMessage(3, 'hi')
