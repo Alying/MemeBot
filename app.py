@@ -13,7 +13,7 @@ app = Flask(__name__)
 ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iHbOtfSTZAVrEDmFuKjLZCGqzdmEmMKPJxqZCMSc7tG2OFFlMVjQ8rBwyZAdFPnSw2ZCgxzCaIuFRs2HYHDhExR3oszDqn4vi80YSle9GTVTN7dW0wZDZD'
 VERIFY_TOKEN = 'columbia'
 bot = Bot(ACCESS_TOKEN)
-# looper = False
+looper = False
 
 @app.route('/')
 def index():
@@ -49,20 +49,20 @@ def webhook():
 					else:
 						input_text = 'no text'
 
-					# if input_text == 'Subscribe':
-					# 	response = "Sure! Your daily subscription will begin. Message stop to stop. "
-					# 	bot.send_text_message(sender_id, response)
-					# 	memes = meme_getter(10)
-					# 	meme = random.choice(memes)
-					# 	bot.send_text_message(sender_id, meme)
-					# 	looper = True
-					# 	regMessage(memes,10)
+					if input_text == 'Subscribe':
+						response = "Sure! Your daily subscription will begin. Message stop to stop. "
+						bot.send_text_message(sender_id, response)
+						memes = meme_getter(10)
+						meme = random.choice(memes)
+						bot.send_text_message(sender_id, meme)
+						looper = True
+						regMessage(memes,10)
 						 
-					# elif input_text == 'Stop':
-					# 	looper = False
-
-					response = get_message(input_text)
-					bot.send_text_message(sender_id, response)
+					elif input_text == 'Stop':
+						looper = False
+					else:
+						response = get_message(input_text)
+						bot.send_text_message(sender_id, response)
 
 	return "ok", 200
 
@@ -88,3 +88,21 @@ def get_message(input_text):
 
 if __name__ == "__main__":
 	app.run(debug = True, port = 80)
+
+
+def sendMessage(messages, period):
+	message = random.choice(messages)
+	#change message and boolean here
+
+	bot.send_text_message(message)
+
+	if looper:
+		regMessage(messages, period)
+
+def regMessage(messages, period): #period in seconds
+	x = datetime.now()
+	runat = now + timedelta(seconds = period)
+
+	delay = (runat - now).total_seconds()
+
+	Timer(delay, sendMessage, [messages, period]).start()
