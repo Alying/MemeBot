@@ -21,14 +21,9 @@ resp = urllib.urlopen(url).read()
 me = json.loads(resp)
 
 #me is a dictionary, me.keys() is a list, me.values() is a list
-print(type(me))
-print(me.keys())
-print(type(me.keys()))
-print(me.values())
-print(type(me.values()))
 
 # display the result
-pprint.pprint(me)
+#pprint.pprint(me)
 
 def meme_getter(num_of_posts):
 	li = []
@@ -44,3 +39,5 @@ def meme_getter(num_of_posts):
 		li.extend(full_meme_package)
 
 	return li
+
+print(meme_getter(2))
