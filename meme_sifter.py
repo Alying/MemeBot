@@ -5,15 +5,16 @@ import urllib
 import pprint
 
 # get Facebook access token from environment variable
-ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
+ACCESS_TOKEN = 'EAAQENu0nml0BAMicMyUVodPHUK667C7q8fxqX5mn0woZB0ZCKHbL2kUx1WFAHWUe3Cn1DEuNJsJ9iFmepc7hNfa1Ox6kmGZCZBICpkqVebZCe9pKCASriDLGabwusVM3XHvaw8kZBl3gNZBmMOLKiLnC7zZBVL22rTydPrOkhZAnVRSQ89H84OK6nPVebdsFeQ0ZAZCyj6H8wUNHAZDZD'
 
 # build the URL for the API endpoint
 host = "https://graph.facebook.com"
 path = "/331078540726047"
-f = "fields=posts.limit(2){likes.summary(true),link,picture}"
+f = "fields=posts{likes.summary(true),link,picture}"
 params = urllib.urlencode({"access_token": ACCESS_TOKEN})
 
 url = "{host}{path}?{f}&{params}".format(host=host, path=path, f=f, params=params)
+print(url)
 
 # open the URL and read the response
 resp = urllib.urlopen(url).read()
@@ -60,3 +61,4 @@ def best_meme_list(d):
 	max(d.iteritems(), key=operator.itemgetter(1))[0]
 
 print(meme_getter(2))
+
