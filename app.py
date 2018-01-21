@@ -78,7 +78,9 @@ def get_message(input_text):
 	if value == 'memes':
 		memes = meme_getter(5)
 		meme = random.choice(memes)
-		return 'Here is a dank meme {}'.format(meme)
+		return 'Here is a nice meme! {}'.format(meme)
+	elif value == 'bird meme':
+		return 'Here is nice meme! https://www.facebook.com/331078540726047/photos/a.331493887351179.1073741827.331078540726047/331643797336188/?type=3&theater'
 	else:
 		sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're greatful to know you :)"]
     # return selected item to the user
