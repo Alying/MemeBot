@@ -29,7 +29,7 @@ def meme_getter(num_of_posts):
 	li = []
 
 	# of the two keys in the dictionary, the first is the posts; the second is the user id
-	posts, paging, user_id = me.keys()
+	posts = me.keys()
 
 	#image url
 	for i in range(num_of_posts):
