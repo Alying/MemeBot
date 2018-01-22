@@ -11,10 +11,13 @@ import os, sys
 
 app = Flask(__name__)
 # ACCESS_TOKEN =  os.environ['SECRET_KEY']
+#FB Messenger Token
 ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iHbOtfSTZAVrEDmFuKjLZCGqzdmEmMKPJxqZCMSc7tG2OFFlMVjQ8rBwyZAdFPnSw2ZCgxzCaIuFRs2HYHDhExR3oszDqn4vi80YSle9GTVTN7dW0wZDZD'
 VERIFY_TOKEN = 'columbia'
 bot = Bot(ACCESS_TOKEN)
 #looper = False
+
+#messenger introduction
 page = fbmq.Page(ACCESS_TOKEN,api_ver="v2.11")
 page.greeting("Welcome to MemeBot! Chat with us to get memes or compliments.")
 
@@ -22,7 +25,8 @@ page.greeting("Welcome to MemeBot! Chat with us to get memes or compliments.")
 def index():
 	return render_template('index.html', name='MemeBot')
 
-@app.route('/', methods=['GET'])
+#receiving messages
+@app.route('/', methods=['GET']) 
 def verify():
 	# Webhook verification
     if request.args.get("hub.mode") == "subscribe" and request.args.get("hub.challenge"):
@@ -31,6 +35,7 @@ def verify():
         return request.args["hub.challenge"], 200
     return "Hello world", 200
 
+#sending messages
 @app.route('/', methods=['POST'])
 def webhook():
 	data = request.get_json()
@@ -76,8 +81,8 @@ def log(message):
 	sys.stdout.flush()
 
 def get_message(input_text):
-	value = wit_response(input_text)
-	if value == 'Bird meme':
+	value = wit_response(input_text) #value is the value WIT.AI returns
+	if input_text == 'bird meme':
 		return 'Here is bird meme! https://www.facebook.com/331078540726047/photos/a.331493887351179.1073741827.331078540726047/331643797336188/?type=3&theater'
 	elif value == 'memes':
 		memes = meme_getter(5)

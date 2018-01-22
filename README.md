@@ -9,4 +9,4 @@ Click the facebook link in the upper right hand corner to start chatting with th
 Enjoy a hilarious chat bot built by flask, various APIs, and natural language processing.  
 
 NOTE: 
-This bot requires an API token to be updated every hour or so, if it's not responding, that's probably why!
+This bot requires the Facebook API token to be updated every hour or so, if it's not responding, that's probably why!
