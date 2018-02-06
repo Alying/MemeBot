@@ -4,7 +4,7 @@ import urllib
 import pprint
 
 # get Facebook access token from environment variable
-ACCESS_TOKEN = 'EAACEdEose0cBAHkgQznGlhV5mRNCNcw29OAMEiosZBA7oM8pZA7vZB1aT49csoVFZAVO2w7afwZAAqZCVCRW54TzqeaZC1haSAkZAGPWYOHGK0Yxy8LlZAmqmDwEbrROqVOfliaxliLFG7ICbVdj6uOkG2JZB2J3vQZAPu8xZACZAS0DgX0flI3c0261vbLx5NdD6o1E8LxZCnnHGsRwZDZD'
+ACCESS_TOKEN = 'EAACEdEose0cBANzpBUAmM7OcHdiuHJqPqNNuxZCbvn6DYcJdxQr0cSZBIdMcZBrXIqEvhCTiA5CgD2tQ0sJKcsvfincSS2DgcnXDai7qSQ2ZAEj5RHmsprcYXzk8nZCZB428xnEbOh2ZBVDEtyrIyOwMpMiJZADWuY1iuchqCCKl9ryUysL38QEaBYy21Qq1L4CAqjW8LmfGYQZDZD'
 
 # build the URL for the API endpoint
 host = "https://graph.facebook.com"
