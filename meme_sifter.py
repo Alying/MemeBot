@@ -4,7 +4,7 @@ import urllib
 import pprint
 
 # get Facebook access token from environment variable
-ACCESS_TOKEN = 'EAAQENu0nml0BAFFQtSspMNZAwUQMHbfLgWkp3Jh4orZCmRC5H1yWRZBNBlNpMQA2GkfPxsqzqMRSevJcAc5pAz9A3Ju3vB0xZB56dfCziGsSZB78mhMExkwPIailfUu7JwyRDksrpZBhzMyurLrwfKjMCYQpQXPWERZBRlrMWDo0wZDZD'
+ACCESS_TOKEN = 'EAAQENu0nml0BACz0f136IxZBeffq2ZC2sgqEK0dkOnf2lwce1lN6rWkW5rzZAQqkZBLEcD4VtPsiiE5l1XiETLZAZC9Mq57ca7NaZCDQCu1ZAOX7oLEabZAuNUkyB2QUrYHuWq09HG4TwlPIrrEhooaDNr1ZC41zrBLyEZD'
 
 
 # build the URL for the API endpoint
