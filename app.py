@@ -89,7 +89,8 @@ def get_message(input_text):
 		meme = random.choice(memes)
 		return 'Here is a nice meme! {}'.format(meme)
 	else:
-		sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're grateful to know you :)"]
+		sample_responses = ["You are stunning!", "We're proud of you.", "Keep on being you!", "We're grateful to know you :)",
+		 "Your smile is contagious.", "You're a smart cookie.", "Is that your picture next to 'charming' in the dictionary?"]
     # return selected item to the user
 		return random.choice(sample_responses)
 
