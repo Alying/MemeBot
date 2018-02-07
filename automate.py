@@ -5,8 +5,9 @@ from threading import Timer
 # from app import check
 from pymessenger.bot import Bot
 import config
+import os
 
-ACCESS_TOKEN = config.ACCESS_TOKEN
+ACCESS_TOKEN =  os.environ['ACCESS_TOKEN']
 bot = Bot(ACCESS_TOKEN)
 
 def sendMessage(messages, period):

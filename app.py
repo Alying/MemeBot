@@ -11,10 +11,9 @@ import os, sys
 import config
 
 app = Flask(__name__)
-# ACCESS_TOKEN =  os.environ['SECRET_KEY']
+ACCESS_TOKEN =  os.environ['ACCESS_TOKEN']
 #FB Messenger Token
-ACCESS_TOKEN = config.ACCESS_TOKEN
-VERIFY_TOKEN = config.VERIFY_TOKEN
+VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 bot = Bot(ACCESS_TOKEN)
 #looper = False
 
