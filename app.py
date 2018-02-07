@@ -8,12 +8,13 @@ import fbmq
 from automate import sendMessage, regMessage, scheduleMessage
 from userMongo import addPersonMongo, updateInfo, delSubs, returnInfo
 import os, sys
+import config
 
 app = Flask(__name__)
 # ACCESS_TOKEN =  os.environ['SECRET_KEY']
 #FB Messenger Token
-ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iHbOtfSTZAVrEDmFuKjLZCGqzdmEmMKPJxqZCMSc7tG2OFFlMVjQ8rBwyZAdFPnSw2ZCgxzCaIuFRs2HYHDhExR3oszDqn4vi80YSle9GTVTN7dW0wZDZD'
-VERIFY_TOKEN = 'columbia'
+ACCESS_TOKEN = config.ACCESS_TOKEN
+VERIFY_TOKEN = config.VERIFY_TOKEN
 bot = Bot(ACCESS_TOKEN)
 #looper = False
 
