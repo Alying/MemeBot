@@ -8,7 +8,7 @@ import fbmq
 from automate import sendMessage, regMessage, scheduleMessage
 from userMongo import addPersonMongo, updateInfo, delSubs, returnInfo
 import os, sys
-import config
+
 
 app = Flask(__name__)
 
