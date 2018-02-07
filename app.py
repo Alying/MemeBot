@@ -11,9 +11,13 @@ import os, sys
 import config
 
 app = Flask(__name__)
-ACCESS_TOKEN =  os.environ['ACCESS_TOKEN']
+
 #FB Messenger Token
-VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
+# ACCESS_TOKEN =  os.environ['ACCESS_TOKEN']
+# VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
+
+ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iHbOtfSTZAVrEDmFuKjLZCGqzdmEmMKPJxqZCMSc7tG2OFFlMVjQ8rBwyZAdFPnSw2ZCgxzCaIuFRs2HYHDhExR3oszDqn4vi80YSle9GTVTN7dW0wZDZD'
+VERIFY_TOKEN = 'columbia'
 bot = Bot(ACCESS_TOKEN)
 #looper = False
 
