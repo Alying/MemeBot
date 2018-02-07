@@ -4,7 +4,7 @@ import urllib
 import pprint
 
 # get Facebook access token from environment variable
-SECRET_TOKEN = config.SECRET_TOKEN
+SECRET_TOKEN = os.environ['SECRET_TOKEN']
 
 
 # build the URL for the API endpoint
