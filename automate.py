@@ -4,8 +4,9 @@ from datetime import datetime, timedelta
 from threading import Timer
 # from app import check
 from pymessenger.bot import Bot
+import config
 
-ACCESS_TOKEN = 'EAAQENu0nml0BAA5VZATAIav1GYZBqhQaUwP2gAbybmc4L1mz65fZBZBjzXfx6iHbOtfSTZAVrEDmFuKjLZCGqzdmEmMKPJxqZCMSc7tG2OFFlMVjQ8rBwyZAdFPnSw2ZCgxzCaIuFRs2HYHDhExR3oszDqn4vi80YSle9GTVTN7dW0wZDZD'
+ACCESS_TOKEN = config.ACCESS_TOKEN
 bot = Bot(ACCESS_TOKEN)
 
 def sendMessage(messages, period):
