@@ -9,9 +9,8 @@ def wit_response(message):
 	value = None
 
 	try: 
-		# entity = list(resp['entities'])[0]
-		value = resp['entities']['sendmemes'][0]['value']
+		entity = list(resp['entities'])[0]
+		value = resp['entities'][str(entity)][0]['value']
 	except: 
 		pass
-
-	return value
+	return entity, value

@@ -85,9 +85,11 @@ def log(message):
 	sys.stdout.flush()
 
 def get_message(input_text):
-	value = wit_response(input_text) #value is the value WIT.AI returns
+	entity, value = wit_response(input_text) #value is the value WIT.AI returns
 	if input_text == 'bird meme':
 		return 'Here is bird meme! https://www.facebook.com/331078540726047/photos/a.331493887351179.1073741827.331078540726047/331643797336188/?type=3&theater'
+	elif (entity == 'greetings') and (value == 'true'):
+		return 'Hello! I am your friendly neighborhood MemeBot! Ask for memes or just chat for compliments :)'
 	elif value == 'memes':
 		memes = meme_getter(5)
 		meme = random.choice(memes)
