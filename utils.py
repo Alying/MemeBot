@@ -14,7 +14,3 @@ def wit_response(message):
 	except: 
 		pass
 	return entity, value
-
-entity, value = wit_response('send memes')
-print(entity)
-print(value)
